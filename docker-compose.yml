@@ -12,7 +12,7 @@ volumes:
 services:
   openvpn:
     container_name: openvpn
-    image: 373633196736.dkr.ecr.eu-west-2.amazonaws.com/openvpn-server:latest
+    image: 956449821269.dkr.ecr.us-west-2.amazonaws.com/vpn-server:openvpnserver-latest
     cap_add:
         - NET_ADMIN
     ports:
@@ -54,13 +54,13 @@ services:
       - /media/ssd/mysql:/var/lib/mysql
   googleauth:
     container_name: googleauth
-    image: 373633196736.dkr.ecr.eu-west-2.amazonaws.com/openvpn-googleauth:latest
+    image: 956449821269.dkr.ecr.us-west-2.amazonaws.com/vpn-server:googleauth-latest
 
   webadmin:
-    container_name: webadmin 
+    container_name: webadmin
     depends_on:
       - openvpn
-    image: 373633196736.dkr.ecr.eu-west-2.amazonaws.com/openvpn-webui:latest
+    image: 956449821269.dkr.ecr.us-west-2.amazonaws.com/vpn-server:webui-latest
     ports:
       - 8888:80
     volumes:
@@ -77,4 +77,4 @@ services:
       - AWS_SECRET_ACCESS_KEY
 
     command: sh -c "/usr/local/bin/start.sh & cron -f"
-    
+

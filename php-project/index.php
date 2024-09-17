@@ -110,7 +110,7 @@
           $filePath = $file->getRealPath();
           $relativePath = substr($filePath, strlen($rootPath) + 1);
               if ($relativePath == "client.ovpn") {
-              $relativePath = "TWS-$regionName.ovpn";
+              $relativePath = "AutoDS-$regionName.ovpn";
               }
           // Add current file to archive
           $zip->addFile($filePath, "$archive_base_name/$relativePath");
